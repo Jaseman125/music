@@ -1,4 +1,4 @@
-![Music Icon](https://jaseman125.github.io/img/music.png)
+<img src="https://jaseman125.github.io/img/music.png" height="200">
 
 # JASEMAN.COM MUSIC REPOSITORY
 ## Overview
