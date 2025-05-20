@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page Flipper</title>
+    <style>
+        #leftrightcontainer {
+            width: 60%;
+            margin: auto;
+            text-align: center;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        button {
+    		margin: 5px;
+    		padding: 5px 10px; /* Reduced padding for smaller height */
+    		font-size: 14px; /* Smaller font size */
+	}
+        #content {
+            padding: 20px;
+            border: 1px solid #ddd;
+            font-size: 20px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+
+<div id="leftrightcontainer">
+    <div class="buttons">
+        <button onclick="prevPage()">⬅️ Prev</button>
+        <button onclick="nextPage()">Next ➡️</button>
+    </div>
+    <div id="content">Welcome to the interactive page flipper!<br><br>Click the buttons above to navigate.</div>
+</div>
+
+<script>
+    let pages = [
+        `Welcome to the interactive page flipper!\n\nClick the buttons above to navigate.`,
+        `Page 2: Learning HTML, CSS, and JavaScript\n\nEach language plays a unique role in web development.\nHTML structures the content.\nCSS styles it beautifully.\nJavaScript brings it to life!`,
+        `Page 3: Rearrange your pages easily!\n\nJust modify the 'pages' array in the script.\nEach entry represents a new page.\nYou can change the order with simple cut and paste!`,
+        `Page 4: Customize your content!\n\nAdd images, links, styles, and more.\nMake each page truly your own.\nExperiment and see what works best!`,
+        `Page 5: Jaseman woz ere!`
+    ];
+    
+    let currentPage = 0;
+
+    function updateContent() {
+        document.getElementById("content").innerHTML = pages[currentPage];
+    }
+
+    function nextPage() {
+        if (currentPage < pages.length - 1) {
+            currentPage++;
+            updateContent();
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 0) {
+            currentPage--;
+            updateContent();
+        }
+    }
+</script>
+
+</body>
+</html>
