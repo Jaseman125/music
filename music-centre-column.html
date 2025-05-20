@@ -13,29 +13,29 @@
         .buttons {
             display: flex;
             justify-content: center;
-            margin-bottom: 0px;
-	    padding-bottom: 0;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
         }
         button {
-    		margin: 5px;
-    		padding: 5px 10px; /* Reduced padding for smaller height */
-    		font-size: 14px; /* Smaller font size */
-	}
-#content {
-    padding: 0;
-    margin: 0;
-    font-size: 20px;
-    width: 100%;
-    white-space: pre-line;
-    border: none; /* Ensure no border */
-    outline: none; /* Removes any default browser outline */
-    background: transparent; /* Ensures no background box */
-}
-table {
-    margin: 0;
-    padding: 0;
-    border-collapse: collapse; /* Ensures cells sit tight */
-}
+            margin: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        #counter {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #content {
+            padding: 0;
+            margin: 0;
+            font-size: 20px;
+            width: 100%;
+            white-space: pre-line;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
     </style>
 </head>
 <body>
@@ -43,11 +43,12 @@ table {
 <div id="leftrightcontainer">
     <div class="buttons">
         <button onclick="prevPage()">⬅️ Prev</button>
+        <span id="counter">0</span>
         <button onclick="nextPage()">Next ➡️</button>
     </div>
-    <div id="content"><center>
-
-<div style="margin-top: -110px;">
+    <div id="content">
+        <center>
+            <div style="margin-top: -110px;">
 <table border='0'>
 <tr>
 <td width='820' height='820' valign='top'>
@@ -166,14 +167,14 @@ table {
 </td>
 </tr>
 </table>
-</div>
-	    
-</div>
+            </div>
+        </center>
+    </div>
 </div>
 
 <script>
     let pages = [
-        `Some Description about why I have a 100 album list`,
+        `This is my Top 100 Album List.  The Albums are listed in the date order that I last played them.`,
         `Album1`,
         `Album2`,
         `Album3`,
@@ -185,6 +186,7 @@ table {
 
     function updateContent() {
         document.getElementById("content").innerHTML = pages[currentPage];
+        document.getElementById("counter").innerText = currentPage;
     }
 
     function nextPage() {
@@ -200,10 +202,14 @@ table {
             updateContent();
         }
     }
+
+    updateContent(); // Ensure the initial content is displayed correctly
 </script>
+
 <center>
-<p style="font-family: sans-serif; font-weight: bold; font-size: 18px;margin-top: -100px; margin-bottom: 20px;">USE THE LEFT AND RIGHT ARROWS ABOVE TO BROWSE MY TOP 100 ALBUMS</p>
+<p style="font-family: sans-serif; font-weight: bold; font-size: 18px; margin-top: -100px; margin-bottom: 20px;">USE THE LEFT AND RIGHT ARROWS ABOVE TO BROWSE MY TOP 100 ALBUMS</p>
 </center>
 
 </body>
+	
 </html>
